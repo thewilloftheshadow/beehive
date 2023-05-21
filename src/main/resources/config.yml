@@ -1,0 +1,13 @@
+# BeeHiveSMP Plugin, (c) Shadow 2023
+
+# There isn't currently any config, this is just here to document the permission setup so far
+
+# Shopkeepers are filtered by permission, so users must have the permission to use the shopkeeper to use it
+# The permission is in the form "beehive.shopkeeper.<shopkeeper name>"
+# The shopkeeper name is the name of the shopkeeper above their head, set when creating the shopkeeper.
+
+# Enable debugger mode
+debug: false
+
+# DO NOT CHANGE THIS MANUALLY
+config-version: 1
