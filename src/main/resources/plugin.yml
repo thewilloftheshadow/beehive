@@ -3,7 +3,7 @@ version: ${project.version}
 main: com.shadowdev.beehive.BeeHiveSMP
 api-version: 1.19
 author: thewilloftheshadow
-depend: []
+depend: ["Vault", "Shopkeepers"]
 load: POSTWORLD
 website: "https://github.com/thewilloftheshadow/beehivesmp"
 description: Custom plugin for BeeHiveSMP
