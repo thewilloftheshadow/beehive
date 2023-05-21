@@ -25,14 +25,26 @@ public final class ShopkeeperOpenUIEventListener implements Listener {
 		Shopkeeper shopkeeper = event.getShopkeeper();
 		Player player = event.getPlayer();
 
-		String permission = "beehive.shop." + shopkeeper.getName();
+		if (shopkeeper.getName().length() > 0) {
 
-		this.plugin.debug("Checking permission for shop: " + permission);
+			String[] validPermissions = { "beehive.shop." + shopkeeper.getName(), "beehive.shop.*", "beehive.admin" };
 
-		if (!BeeHiveSMP.perms.playerHas(player, permission)) {
+			this.plugin.debug("Checking permission for shop: " + validPermissions.toString());
 
-			event.setCancelled(true);
-			player.sendMessage(ChatColor.YELLOW + "You haven't unlocked this shop yet!");
+			boolean canUse = false;
+
+			for (String permission : validPermissions) {
+				if (BeeHiveSMP.perms.playerHas(player, permission)) {
+					canUse = true;
+					break;
+				}
+			}
+
+			if (!canUse) {
+				event.setCancelled(true);
+				player.sendMessage(ChatColor.YELLOW + "You haven't unlocked this shop yet!");
+			}
 		}
 	}
+
 }
